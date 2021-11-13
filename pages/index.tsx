@@ -140,7 +140,7 @@ function WeatherCard({ data, error }: { data: WeatherData; error?: string }) {
 					onClick={() =>
 						share(
 							`Weather in ${data.name}, ${data.sys.country}`,
-							`${window.location.hostname}/?city=${data.name}`
+							`/?city=${data.name}`
 						)
 					}
 				>
