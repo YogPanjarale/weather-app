@@ -74,6 +74,8 @@ const share = (title: string, url: string) => {
 	}
 };
 function WeatherCard({ data, error }: { data: WeatherData; error?: string }) {
+	const minutes = (data.coord.lon * 4);
+	const timezone = (minutes>0?"+":"-")+ ((minutes/60)-((minutes/60)%1))+":"+(minutes%60).toFixed(0);
 	return (
 		<>
 			<div className="max-w-sm rounded overflow-hidden shadow-lg md:w-1/3 p-4 bg-gradient-to-tl from-red-500  to-yellow-500 text-white">
@@ -125,7 +127,11 @@ function WeatherCard({ data, error }: { data: WeatherData; error?: string }) {
 									data.sys.sunset * 1000
 								).toLocaleTimeString()}
 							</p>
+
 						</div>
+						<div className="text-xl">
+							Local Timezone : UTC {timezone}
+							</div>
 					</>
 				)}
 			</div>
