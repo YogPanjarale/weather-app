@@ -166,7 +166,7 @@ export default function Home({
 	// console.log(data);
 	return (
 		<div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500">
-			{data ? (
+			{data!=null ? (
 				<Head>
 					<title>
 						Weather in {data.name},{data.sys.country}
@@ -175,12 +175,12 @@ export default function Home({
 						name="description"
 						content={`Weather in ${data.name}, ${data.sys.country} is ${data.weather[0].description} with the temperature of ${data.main.temp}°C `}
 					/>
-					<link rel="icon" href="/favicon.ico" />
+					<link rel="icon" href={`https://openweathermap.org/img/w/${data.weather[0].icon}.png`}/>
 				</Head>
 			) : (
 				<Head>
 					<title>Weather App</title>
-					<link rel="icon" href="/favicon.ico" />
+					<link rel="icon" href="/favicon.png" />
 				</Head>
 			)}
 
