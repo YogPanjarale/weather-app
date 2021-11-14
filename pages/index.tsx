@@ -176,6 +176,9 @@ export default function Home({
 						content={`Weather in ${data.name}, ${data.sys.country} is ${data.weather[0].description} with the temperature of ${data.main.temp}°C `}
 					/>
 					<link rel="icon" href={`https://openweathermap.org/img/w/${data.weather[0].icon}.png`}/>
+					<meta property="og:image" content={`https://openweathermap.org/img/w/${data.weather[0].icon}.png`}/>
+					<meta property="og:title" content={`Weather in ${data.name}, ${data.sys.country}`}/>
+					<meta property="og:description" content={`Weather in ${data.name}, ${data.sys.country} is ${data.weather[0].description} with the temperature of ${data.main.temp}°C `}/>
 				</Head>
 			) : (
 				<Head>
